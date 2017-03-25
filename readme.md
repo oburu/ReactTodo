@@ -1,2 +1,1 @@
-React timer/countdown (with a lot of tests - Unit Michael Jackson Expect (^__^)).
-Work in progress. demo here https://reactotimer.herokuapp.com/
+This is a react.js boilerplate with all the config for webpack, sass, karma, and more, all wired up.
