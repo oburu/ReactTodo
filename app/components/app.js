@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
-import Main from './main';
+import TodoApp from 'TodoApp';
 
 // load foundation
 $(document).foundation();
@@ -11,10 +11,7 @@ require('style!css!sass!applicationStyles');
 class App extends Component{
   render() {
     return(
-      <Router history={hashHistory}>
-        <Route path="/" component={Main}>
-        </Route>
-      </Router>
+      <TodoApp />
     );
   }
 }
