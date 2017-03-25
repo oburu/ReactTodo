@@ -1,1 +1,1 @@
-This is a react.js boilerplate with all the config for webpack, sass, karma, foundation and the infamous jQuery, all wired up.
+Work in progress, React todo with webpack, etc + firebase.
