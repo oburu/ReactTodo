@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import TodoSearch from 'TodoSearch';
+import uuid from 'node-uuid';// this is a mpdeule to generate an unique id, noice.
 
 class TodoApp extends Component{
   constructor(props) {
@@ -12,23 +13,32 @@ class TodoApp extends Component{
       showCompleted: false,
       searchText: '',
       todos: [{
-        id:1,
+        id:uuid(),
         text: 'walk the dog'
       },{
-        id:2,
+        id:uuid(),
         text: 'walk the dog'
       },{
-        id:3,
+        id:uuid(),
         text: 'walk the cat'
       },{
-        id:4,
+        id:uuid(),
         text: 'do the doing'
       }]
     };
   }
 
   handleAddTodo(text){
-    alert('new todo: '+ text);
+    this.setState({
+      todos:[
+        ...this.state.todos,
+        {
+          id: uuid(),
+          text: text
+        }
+
+      ]
+    });
   }
 
   handleSearch(showCompleted, searchText){
