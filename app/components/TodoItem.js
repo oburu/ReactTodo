@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 
 class TodoItem extends Component{
   render(){
-    let {text, id} = this.props;
+    let {text, id, completed} = this.props;
     return(
-      <li>{id}. {text}</li>
+      <div onClick={() => {
+          this.props.onToggle(id);
+        }}>
+        <input type="checkbox" checked={completed} />
+        {text}
+      </div>
     )
   }
 }

@@ -7,7 +7,7 @@ class TodoList extends Component{
     const renderTodos = () => {
       return todos.map((todo)=>{
         return (
-          <TodoItem key={todo.id} {...todo}/>//the spread operator is KEY!!
+          <TodoItem key={todo.id} {...todo} onToggle={this.props.onToggle} />//the spread operator is KEY!!
         )
       });
     }
