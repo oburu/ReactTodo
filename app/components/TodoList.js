@@ -13,7 +13,7 @@ class TodoList extends Component{
     }
     return(
       <div>
-        Test
+        Todos
         <ul>
           {renderTodos()}
         </ul>

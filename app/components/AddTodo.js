@@ -9,7 +9,7 @@ class AddTodo extends Component{
     if (text.length > 0){
       this.refs.todoText.value = '';
       this.props.onAdding(text);
-    }else {
+    } else {
       this.refs.todoText.focus();
     }
   }
