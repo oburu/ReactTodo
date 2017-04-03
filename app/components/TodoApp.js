@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import uuid from 'node-uuid';// this is a modeule to generate an unique id, noooooice!
+import moment from 'moment';
 
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
@@ -29,7 +30,9 @@ class TodoApp extends Component{
         {
           id: uuid(),
           text: text,
-          completed: false
+          completed: false,
+          createdAt:moment().unix(),
+          completedAt: undefined
         }
 
       ]
@@ -40,6 +43,7 @@ class TodoApp extends Component{
     let updatedTodos = this.state.todos.map((todo)=>{
       if(todo.id === id){
         todo.completed = !todo.completed;
+        todo.completedAt = todo.completed ? moment().unix() : undefined;
       }
       return todo;
     });
