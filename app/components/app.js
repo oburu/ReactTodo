@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import TodoApp from 'TodoApp';
 
+let actions = require('actions') ;
+let store = require('configureStore').configure();
+
+store.subscribe( ()=> {
+  console.log('New State', store.getState());
+});
+
+store.dispatch(actions.addTodo('Clean the shit'));
+store.dispatch(actions.setSearchText('shit'));
+store.dispatch(actions.toggleShowCompleted());
+
 // load foundation
 $(document).foundation();
 
