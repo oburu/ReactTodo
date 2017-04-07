@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Provider} from 'react-redux';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import TodoApp from 'TodoApp';
 
@@ -22,7 +23,9 @@ require('style!css!sass!applicationStyles');
 class App extends Component{
   render() {
     return(
-      <TodoApp />
+      <Provider store={store}>
+        <TodoApp />
+      </Provider>
     );
   }
 }

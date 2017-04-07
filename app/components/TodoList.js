@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import TodoItem from 'TodoItem';
 
-class TodoList extends Component{
+export class TodoList extends Component{
   render(){
     let {todos} = this.props;
     const renderTodos = () => {
@@ -10,10 +11,10 @@ class TodoList extends Component{
           <p className='container__message'>Nothing to Do</p>
         );
       }
-      
+
       return todos.map((todo)=>{
         return (
-          <TodoItem key={todo.id} {...todo} onToggle={this.props.onToggle} />//the spread operator is KEY!!
+          <TodoItem key={todo.id} {...todo} />//the spread operator is KEY!!
         )
       });
     }
@@ -25,4 +26,10 @@ class TodoList extends Component{
   }
 }
 
-export default TodoList;
+export default connect(
+  (state) => {
+    return{
+      todos: state.todos
+    }
+  }
+)(TodoList);
