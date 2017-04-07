@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TodoItem from 'TodoItem';
+import TodoAPI from 'TodoApi';
 
 export class TodoList extends Component{
   render(){
-    let {todos} = this.props;
+    let {todos, showCompleted, searchText} = this.props;
     const renderTodos = () => {
       if(todos.length === 0){
         return(
@@ -12,7 +13,7 @@ export class TodoList extends Component{
         );
       }
 
-      return todos.map((todo)=>{
+      return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo)=>{
         return (
           <TodoItem key={todo.id} {...todo} />//the spread operator is KEY!!
         )
@@ -28,8 +29,6 @@ export class TodoList extends Component{
 
 export default connect(
   (state) => {
-    return{
-      todos: state.todos
-    }
+    return state;
   }
 )(TodoList);

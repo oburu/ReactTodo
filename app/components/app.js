@@ -10,10 +10,6 @@ store.subscribe( ()=> {
   console.log('New State', store.getState());
 });
 
-store.dispatch(actions.addTodo('Clean the shit'));
-store.dispatch(actions.setSearchText('shit'));
-store.dispatch(actions.toggleShowCompleted());
-
 // load foundation
 $(document).foundation();
 
